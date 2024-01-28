@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import logoLight from "@/public/images/logo/logo-light.svg";
+import logoDark from "@/public/images/logo/logo-dark.svg";
 
 const Header = () => {
   // Navbar toggle
@@ -58,7 +60,7 @@ const Header = () => {
               >
                 <div className="dark:hidden">
                   <Image
-                    src="/images/logo/logo-2.svg"
+                    src={logoLight.src}
                     alt="logo"
                     width={140}
                     height={30}
@@ -66,9 +68,9 @@ const Header = () => {
                   />
                 </div>
 
-                <div className="hidden dark:block">
+                <div className="hidden rounded-lg hover:bg-[#ffffff16] hover:p-2 dark:block">
                   <Image
-                    src="/images/logo/logo.svg"
+                    src={logoDark.src}
                     alt="logo"
                     width={140}
                     height={30}

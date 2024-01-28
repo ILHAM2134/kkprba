@@ -6,6 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
+import logo from "@/public/images/logo/logo.jpg";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,14 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
+      <head>
+        <title>KKPRBA</title>
 
-      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <link rel="icon" type="image/png" href={logo.src} />
+      </head>
+      <body
+        className={`scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-300 dark:scrollbar-track-gray-800 dark:scrollbar-thumb-gray-500 bg-[#FCFCFC] dark:bg-black ${inter.className}`}
+      >
         <Providers>
           <Header />
 
