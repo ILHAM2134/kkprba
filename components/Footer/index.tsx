@@ -103,6 +103,7 @@ const Footer = () => {
                   <a
                     href="https://maps.app.goo.gl/q5KovRAV9gmemqLo6"
                     target="_blank"
+                    rel="noreferrer"
                     className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     Puri Kartika Asri Blok W-10, Purwodadi, Blimbing, Malang
@@ -124,6 +125,7 @@ const Footer = () => {
                   <a
                     href="https://maps.app.goo.gl/n1QRWDoWxDfHP9Wi9"
                     target="_blank"
+                    rel="noreferrer"
                     className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     Voza Tower Lantai 20 Jl. Mayjen HR. Muhammad No.31, Kec.
@@ -145,6 +147,7 @@ const Footer = () => {
                   <a
                     href="https://wa.me/+6281333074300"
                     target="_blank"
+                    rel="noreferrer"
                     className="block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     +62 81 333 074 300
@@ -157,6 +160,7 @@ const Footer = () => {
                   <a
                     href="https://mailto:kkprba@gmail.com"
                     target="_blank"
+                    rel="noreferrer"
                     className="my-1 block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     kkprba@gmail.com
