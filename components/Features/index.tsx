@@ -17,7 +17,7 @@ const Features = () => {
 
   return (
     <>
-      <section id="features" className="py-16  md:py-20 lg:py-28">
+      <section id="our-services" className="py-16  md:py-20 lg:py-28">
         <div className="container border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <Row justify="space-between">
             <Col xs={24} md={14} className="mx-auto flex flex-wrap gap-6 p-2">

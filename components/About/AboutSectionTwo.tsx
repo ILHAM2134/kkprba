@@ -1,7 +1,13 @@
-import { Button, Collapse, CollapseProps, Image } from "antd";
+"use client";
+import { Button, Collapse, CollapseProps, ConfigProvider, Image } from "antd";
 import imgRegulation from "@/public/images/about/regulation.png";
 import SectionTitle from "../Common/SectionTitle";
 import { GrLinkNext } from "react-icons/gr";
+import {
+  IoIosArrowForward,
+  IoIosArrowDown,
+  IoIosArrowUp,
+} from "react-icons/io";
 
 const AboutSectionTwo = () => {
   const checkIcon = (
@@ -13,9 +19,11 @@ const AboutSectionTwo = () => {
   const items: CollapseProps["items"] = [
     {
       key: "1",
-      label: "This is panel header 1",
+      label: (
+        <p className="text-black dark:text-white">This is panel header 1</p>
+      ),
       children: (
-        <p>
+        <p className="text-black dark:text-white">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam commodi,
           minima eveniet, laudantium aliquam quo atque quisquam laboriosam
           soluta tempora facere?
@@ -24,9 +32,11 @@ const AboutSectionTwo = () => {
     },
     {
       key: "2",
-      label: "This is panel header 2",
+      label: (
+        <p className="text-black dark:text-white">This is panel header 2</p>
+      ),
       children: (
-        <p>
+        <p className="text-black dark:text-white">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam commodi,
           minima eveniet, laudantium aliquam quo atque quisquam laboriosam
           soluta tempora facere?
@@ -35,9 +45,11 @@ const AboutSectionTwo = () => {
     },
     {
       key: "3",
-      label: "This is panel header 3",
+      label: (
+        <p className="text-black dark:text-white">This is panel header 3</p>
+      ),
       children: (
-        <p>
+        <p className="text-black dark:text-white">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam commodi,
           minima eveniet, laudantium aliquam quo atque quisquam laboriosam
           soluta tempora facere?
@@ -56,7 +68,7 @@ const AboutSectionTwo = () => {
   );
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28">
+    <section id="regulation" className="pt-16 md:pt-20 lg:pt-28">
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
@@ -83,16 +95,39 @@ const AboutSectionTwo = () => {
 
             <div className="w-full px-4 lg:w-1/2">
               <div className="wow fadeInUp mb-12 lg:mb-0" data-wow-delay=".15s">
-                <Collapse
-                  size="large"
-                  className="w-full"
-                  items={items}
-                  defaultActiveKey={["1"]}
-                />
+                <ConfigProvider
+                  theme={{
+                    components: {
+                      Collapse: {
+                        contentBg: "transparent",
+                      },
+                    },
+                  }}
+                >
+                  <Collapse
+                    expandIcon={(panelProps) => {
+                      console.log({ panelProps });
+                      return panelProps?.isActive ? (
+                        <div className="bg-white dark:bg-black">
+                          <IoIosArrowUp className="text-black dark:text-white" />
+                        </div>
+                      ) : (
+                        <div className="">
+                          <IoIosArrowDown className="text-black dark:text-white" />
+                        </div>
+                      );
+                    }}
+                    size="large"
+                    className="w-full bg-transparent"
+                    rootClassName="dark:bg-black"
+                    items={items}
+                    defaultActiveKey={["1"]}
+                  />
+                </ConfigProvider>
 
                 <Button
                   type="text"
-                  className="ml-auto mt-5 flex items-center justify-end"
+                  className="ml-auto mt-5 flex items-center justify-end text-black dark:text-white dark:hover:text-gray-100"
                   icon={<GrLinkNext />}
                 >
                   Selengkapnya

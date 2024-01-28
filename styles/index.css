@@ -34,6 +34,10 @@
 
 @import url("https://fonts.googleapis.com/css?family=Lato");
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 .flip-card-container {
   --hue: 150;
   --primary: hsl(var(--hue), 50%, 50%);

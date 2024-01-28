@@ -7,7 +7,7 @@ import { dataHero } from "./dummyData";
 const Hero = () => {
   return (
     <>
-      <Carousel autoplay autoplaySpeed={3000} speed={600}>
+      <Carousel autoplay autoplaySpeed={3000} speed={600} id="hero">
         {dataHero?.map((item) => (
           <section
             key={item?.id}
