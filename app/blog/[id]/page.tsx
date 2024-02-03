@@ -63,7 +63,7 @@ const BlogDetailsPage = ({ params }: { params: { id: string } }) => {
 
                       <div className="flex items-center">
                         {dataNews?.categories?.map((item) => (
-                          <TagButton text={item?.name} />
+                          <TagButton key={item.id} text={item?.name} />
                         ))}
                       </div>
                     </div>
