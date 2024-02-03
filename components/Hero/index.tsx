@@ -1,10 +1,21 @@
+"use client";
 import Link from "next/link";
 import bgHero from "@/public/images/hero/hero.jpg";
 import { FaWhatsapp, FaClipboardList, FaRocketchat } from "react-icons/fa";
 import { Carousel } from "antd";
 import { dataHero } from "./dummyData";
+import { useEffect, useState } from "react";
 
-const Hero = () => {
+type TPropsHero = {
+  data: any[];
+};
+
+const Hero = ({ data }: TPropsHero) => {
+  const [dataHero, setDataHero] = useState<any[]>([]);
+
+  useEffect(() => {
+    setDataHero(data);
+  }, [data]);
   return (
     <>
       <Carousel autoplay autoplaySpeed={3000} speed={600} id="hero">
@@ -14,11 +25,15 @@ const Hero = () => {
             id="home"
             className="relative z-10 overflow-hidden bg-[#ffffffcf] pb-4 pt-[120px] dark:bg-[#000000b0] md:pb-[30px] md:pt-[150px] xl:pb-[40px] xl:pt-[180px] 2xl:pb-[50px] 2xl:pt-[210px]"
           >
-            <div className="absolute top-0 -z-30 h-full w-full bg-[#ffffffc0] bg-cover dark:bg-[#000000b0]" />
             <div className="absolute top-0 -z-20 h-full w-full bg-[#ffffffc0] bg-cover dark:bg-[#000000b0]" />
 
             <img
-              src={item?.img}
+              src={item?.image}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src =
+                  "https://images.pexels.com/photos/4386366/pexels-photo-4386366.jpeg";
+              }}
               alt="bg-hero"
               className="bg- absolute top-0 -z-30 h-full w-full bg-[#ffffffcf] object-cover dark:bg-[#000000b0]"
             />
@@ -26,26 +41,25 @@ const Hero = () => {
             <div className="container flex flex-col-reverse lg:min-h-[500px]">
               <div className="max-w-[900px]">
                 <h1 className="mb-5 text-2xl font-bold leading-tight text-black dark:text-white sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight">
-                  {item?.title}
+                  {item?.short_title}
                 </h1>
 
-                <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  {item?.desc}
-                </p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      item?.description?.length > 100
+                        ? item?.description?.slice(0, 100) + "..."
+                        : item?.description,
+                  }}
+                  className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl"
+                ></p>
 
                 <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
-                    href="#"
+                    href={`/blog/${item?.id}`}
                     className="flex items-center gap-1 rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     <FaClipboardList /> Baca Selengkapnya
-                  </Link>
-
-                  <Link
-                    href="#"
-                    className="flex items-center gap-1 rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
-                  >
-                    <FaRocketchat /> Diskusi
                   </Link>
                 </div>
               </div>
@@ -197,6 +211,7 @@ const Hero = () => {
                 </defs>
               </svg>
             </div>
+
             <div className="absolute bottom-0 left-0 z-[-1] opacity-30 lg:opacity-100">
               <svg
                 width="364"

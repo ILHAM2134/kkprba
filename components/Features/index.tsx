@@ -226,6 +226,59 @@ const Features = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Brevet & Pelatihan*/}
+              <div className="flip-card-container lg:mt-[-100px]">
+                <div className="flip-card">
+                  <div className="card-front">
+                    <Card
+                      bordered={false}
+                      className=" flex h-[250px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
+                    >
+                      <FaHands className="mx-auto mb-3 text-4xl text-black dark:text-white" />
+
+                      <p className="text-center text-2xl text-black dark:text-white">
+                        Brevet & Pelatihan
+                      </p>
+
+                      <p className="mt-3 text-center text-black dark:text-white">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Facilis, velit!
+                      </p>
+                    </Card>
+                  </div>
+
+                  <div className="card-back hover:z-40">
+                    <Card
+                      bordered={false}
+                      className="h-[250px] w-[300px] bg-gray-100 dark:bg-gray-800"
+                    >
+                      <p className="text-center text-2xl text-black dark:text-white">
+                        Tax Litigation Services
+                      </p>
+
+                      <ul className="ml-3 list-disc">
+                        <li className="my-2 text-black dark:text-white">
+                          Pengajuan Permohonan Pengurangan Sanksi Administrasi
+                          Pajak
+                        </li>
+                        <li className="my-2 text-black dark:text-white">
+                          Restitusi Perpajakan
+                        </li>
+                        <li className="my-2 text-black dark:text-white">
+                          Pemeriksaan Perpajakan
+                        </li>
+                        <li className="my-2 text-black dark:text-white">
+                          Sengketa Perpajakan
+                        </li>
+                        <li className="my-2 text-black dark:text-white">
+                          Kuasa Hukum Pengadilan Pajak
+                        </li>
+                      </ul>
+                    </Card>
+                  </div>
+                </div>
+              </div>
             </Col>
 
             <Col xs={24} md={10} className="flex items-center">

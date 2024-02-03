@@ -87,6 +87,30 @@ const Video = () => {
             </Card>
           </Tooltip>
         </Col>
+        <Col xs={24} md={12} lg={6}>
+          <Tooltip
+            placement="bottom"
+            title={
+              <div className="w-full">
+                <p className="text-lg">Aqshal Izzah Kusuma</p>
+
+                <p className="mt-2 text-lg font-semibold">Supervisor</p>
+              </div>
+            }
+          >
+            <Card
+              bordered={false}
+              className="flex h-[400px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
+            >
+              <Image
+                src={img3.src}
+                alt="video image"
+                width={250}
+                preview={false}
+              />
+            </Card>
+          </Tooltip>
+        </Col>
 
         <Col xs={24} md={12} lg={6}>
           <Tooltip
@@ -105,31 +129,6 @@ const Video = () => {
             >
               <Image
                 src={img2.src}
-                alt="video image"
-                width={250}
-                preview={false}
-              />
-            </Card>
-          </Tooltip>
-        </Col>
-
-        <Col xs={24} md={12} lg={6}>
-          <Tooltip
-            placement="bottom"
-            title={
-              <div className="w-full">
-                <p className="text-lg">Aqshal Izzah Kusuma</p>
-
-                <p className="mt-2 text-lg font-semibold">Supervisor</p>
-              </div>
-            }
-          >
-            <Card
-              bordered={false}
-              className="flex h-[400px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
-            >
-              <Image
-                src={img3.src}
                 alt="video image"
                 width={250}
                 preview={false}
