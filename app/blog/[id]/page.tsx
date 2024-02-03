@@ -18,10 +18,8 @@ const BlogDetailsPage = ({ params }: { params: { id: string } }) => {
     const data = res?.data?.data;
 
     setDataNews(data);
-    console.log({ data });
   });
 
-  console.log({ dataNews });
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
