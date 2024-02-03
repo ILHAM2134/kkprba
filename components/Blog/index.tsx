@@ -12,7 +12,6 @@ type TPropsHero = {
 };
 
 const Blog = ({ data }: TPropsHero) => {
-  console.log({ data });
   const router = useRouter();
   const { theme } = useTheme();
 

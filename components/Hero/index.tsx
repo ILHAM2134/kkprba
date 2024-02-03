@@ -16,6 +16,7 @@ const Hero = ({ data }: TPropsHero) => {
   useEffect(() => {
     setDataHero(data);
   }, [data]);
+
   return (
     <>
       <Carousel autoplay autoplaySpeed={3000} speed={600} id="hero">
