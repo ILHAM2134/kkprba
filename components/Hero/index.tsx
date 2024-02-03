@@ -17,6 +17,7 @@ const Hero = ({ data }: TPropsHero) => {
     setDataHero(data);
   }, [data]);
 
+  console.log({ dataHero });
   return (
     <>
       <Carousel autoplay autoplaySpeed={3000} speed={600} id="hero">

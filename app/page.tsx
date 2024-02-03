@@ -11,33 +11,23 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import axios from "axios";
-import { Metadata } from "next";
+import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+const getData = () => {
+  return axios("https://www.backend.kkprba.com/api/blog");
 };
 
-const getData = async () => {
-  try {
-    const data: any = await axios("https://www.backend.kkprba.com/api/blog");
+export default function Home() {
+  const [data, setData] = useState<any[]>([]);
 
-    return {
-      data,
-    };
-  } catch {
-    return {
-      data: {},
-    };
-  }
-};
+  getData().then((res) => {
+    console.log({ res });
+    const data = res?.data?.data?.filter((item) => item?.is_carousel === "1");
 
-export default async function Home() {
-  const resData = await getData();
+    setData(data);
 
-  const data = resData?.data?.data?.data?.filter(
-    (item) => item?.is_carousel === "1",
-  );
+    console.log({ data });
+  });
 
   return (
     <>
