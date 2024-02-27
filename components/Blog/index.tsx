@@ -2,7 +2,6 @@
 import { Button } from "antd";
 import SectionTitle from "../Common/SectionTitle";
 import SingleBlog from "./SingleBlog";
-import blogData from "./blogData";
 import { GrLinkNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
