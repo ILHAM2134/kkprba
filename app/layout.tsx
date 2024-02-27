@@ -17,17 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head>
         <title>KKPRBA</title>
 
         <link rel="icon" type="image/png" href={logo.src} />
       </head>
       <body
-        className={`scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-300 dark:scrollbar-track-gray-800 dark:scrollbar-thumb-gray-500 bg-[#FCFCFC] dark:bg-black ${inter.className}`}
+        className={`bg-[#FCFCFC] scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-300 dark:bg-black dark:scrollbar-track-gray-800 dark:scrollbar-thumb-gray-500 ${inter.className}`}
       >
         <Providers>
           <Header />

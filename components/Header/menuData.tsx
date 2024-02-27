@@ -10,25 +10,25 @@ const menuData: Menu[] = [
   {
     id: 2,
     title: "About Us",
-    path: "#about",
+    path: "/#about",
     newTab: false,
   },
   {
     id: 3,
     title: "Our Services",
-    path: "#our-services",
+    path: "/#our-services",
     newTab: false,
   },
   {
     id: 4,
     title: "Regulations",
-    path: "#regulation",
+    path: "/#regulation",
     newTab: false,
   },
   {
     id: 5,
     title: "Blogs",
-    path: "#blog",
+    path: "/#blog",
     newTab: false,
   },
 

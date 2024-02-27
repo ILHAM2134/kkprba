@@ -17,7 +17,6 @@ const Hero = ({ data }: TPropsHero) => {
     setDataHero(data);
   }, [data]);
 
-  console.log({ dataHero });
   return (
     <>
       <Carousel autoplay autoplaySpeed={3000} speed={600} id="hero">
@@ -53,8 +52,8 @@ const Hero = ({ data }: TPropsHero) => {
                         ? item?.description?.slice(0, 100) + "..."
                         : item?.description,
                   }}
-                  className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl"
-                ></p>
+                  className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark xs:text-center sm:text-lg md:text-left md:text-xl"
+                />
 
                 <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link

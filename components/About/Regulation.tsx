@@ -10,7 +10,23 @@ import {
 } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
-const AboutSectionTwo = () => {
+type TDataRegulations = {
+  categories: { id: number; name: string }[];
+  created_at: string;
+  description: string;
+  id: number;
+  image: string;
+  is_carousel: number | string | boolean | null;
+  short_title: string;
+  title: string;
+  updated_at: string;
+};
+
+type TPropsRegulation = {
+  data: TDataRegulations[] | [];
+};
+
+const Regulation = ({ data }: TPropsRegulation) => {
   const router = useRouter();
 
   const checkIcon = (
@@ -19,47 +35,11 @@ const AboutSectionTwo = () => {
     </svg>
   );
 
-  const items: CollapseProps["items"] = [
-    {
-      key: "1",
-      label: (
-        <p className="text-black dark:text-white">This is panel header 1</p>
-      ),
-      children: (
-        <p className="text-black dark:text-white">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam commodi,
-          minima eveniet, laudantium aliquam quo atque quisquam laboriosam
-          soluta tempora facere?
-        </p>
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <p className="text-black dark:text-white">This is panel header 2</p>
-      ),
-      children: (
-        <p className="text-black dark:text-white">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam commodi,
-          minima eveniet, laudantium aliquam quo atque quisquam laboriosam
-          soluta tempora facere?
-        </p>
-      ),
-    },
-    {
-      key: "3",
-      label: (
-        <p className="text-black dark:text-white">This is panel header 3</p>
-      ),
-      children: (
-        <p className="text-black dark:text-white">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam commodi,
-          minima eveniet, laudantium aliquam quo atque quisquam laboriosam
-          soluta tempora facere?
-        </p>
-      ),
-    },
-  ];
+  const items: CollapseProps["items"] = data?.slice(0, 3)?.map((item) => ({
+    key: item?.id,
+    label: <p className="text-black dark:text-white">{item?.short_title}</p>,
+    children: <p className="text-black dark:text-white">{item?.title}</p>,
+  }));
 
   const List = ({ text }) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
@@ -189,4 +169,4 @@ const AboutSectionTwo = () => {
   );
 };
 
-export default AboutSectionTwo;
+export default Regulation;

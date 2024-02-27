@@ -1,6 +1,5 @@
-"use client";
 import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import Regulation from "@/components/About/Regulation";
 import Blog from "@/components/Blog";
 import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
@@ -11,29 +10,40 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const getData = () => {
-  return axios("https://www.backend.kkprba.com/api/blog");
+const getData = async () => {
+  try {
+    const resDataBlog = await axios("https://www.backend.kkprba.com/api/blog");
+    const dataBlog = resDataBlog?.data?.data?.filter(
+      (item) => item?.is_carousel === "1",
+    );
+
+    const resDataRegulation = await axios(
+      "https://www.backend.kkprba.com/api/regulation",
+    );
+    const dataRegulation = resDataRegulation?.data?.data;
+
+    return {
+      dataBlog,
+      dataRegulation,
+    };
+  } catch {
+    return {
+      dataBlog: [],
+      dataRegulation: [],
+    };
+  }
 };
 
-export default function Home() {
-  const [data, setData] = useState<any[]>([]);
-
-  getData().then((res) => {
-    console.log({ res });
-    const data = res?.data?.data?.filter((item) => item?.is_carousel === "1");
-
-    setData(data);
-
-    console.log({ data });
-  });
+export default async function Home() {
+  const data = await getData();
 
   return (
     <>
       <ScrollUp />
 
-      <Hero data={data} />
+      <Hero data={data?.dataBlog} />
 
       <AboutSectionOne />
 
@@ -43,15 +53,15 @@ export default function Home() {
 
       {/* <Brands /> */}
 
-      <AboutSectionTwo />
+      <Regulation data={data?.dataRegulation} />
 
       {/* <Testimonials /> */}
 
       {/* <Pricing /> */}
 
-      <Blog data={data} />
+      <Blog data={data?.dataBlog} />
 
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }
