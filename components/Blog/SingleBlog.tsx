@@ -22,7 +22,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   return (
     <>
       <div
-        className="wow fadeInUp group relative overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
+        className="wow fadeInUp group relative h-[500px] overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
         data-wow-delay=".1s"
       >
         <Link
@@ -33,7 +33,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
             {categories?.[0]?.name}
           </span>
 
-          <img src={image} alt="image" />
+          <img src={image} alt="image" height={300} />
         </Link>
 
         <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
@@ -50,8 +50,8 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
             className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10"
             dangerouslySetInnerHTML={{
               __html:
-                description?.length > 100
-                  ? description?.slice(0, 100)
+                description?.length > 50
+                  ? description?.slice(0, 50) + "..."
                   : description,
             }}
           />

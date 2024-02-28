@@ -15,9 +15,11 @@ import { useEffect, useState } from "react";
 const getData = async () => {
   try {
     const resDataBlog = await axios("https://www.backend.kkprba.com/api/blog");
-    const dataBlog = resDataBlog?.data?.data?.filter(
+    const dataBlogCarousel = resDataBlog?.data?.data?.filter(
       (item) => item?.is_carousel === "1",
     );
+
+    const dataBlog = resDataBlog?.data?.data?.slice(0, 3);
 
     const resDataRegulation = await axios(
       "https://www.backend.kkprba.com/api/regulation",
@@ -25,11 +27,13 @@ const getData = async () => {
     const dataRegulation = resDataRegulation?.data?.data;
 
     return {
+      dataBlogCarousel,
       dataBlog,
       dataRegulation,
     };
   } catch {
     return {
+      dataBlogCarousel: [],
       dataBlog: [],
       dataRegulation: [],
     };
@@ -43,7 +47,7 @@ export default async function Home() {
     <>
       <ScrollUp />
 
-      <Hero data={data?.dataBlog} />
+      <Hero data={data?.dataBlogCarousel} />
 
       <AboutSectionOne />
 
