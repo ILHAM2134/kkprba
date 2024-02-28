@@ -19,12 +19,18 @@ const Hero = ({ data }: TPropsHero) => {
 
   return (
     <>
-      <Carousel autoplay autoplaySpeed={3000} speed={600} id="hero">
+      <Carousel
+        autoplay
+        autoplaySpeed={3000}
+        speed={600}
+        id="hero"
+        className="h-[70vh] sm:h-full"
+      >
         {dataHero?.map((item) => (
           <section
             key={item?.id}
             id="home"
-            className="relative z-10 overflow-hidden bg-[#ffffffcf] pb-4 pt-[120px] dark:bg-[#000000b0] md:pb-[30px] md:pt-[150px] xl:pb-[40px] xl:pt-[180px] 2xl:pb-[50px] 2xl:pt-[210px]"
+            className="relative z-10 h-[70vh] overflow-hidden bg-[#ffffffcf] pb-4 pt-[120px] dark:bg-[#000000b0] sm:h-full md:pb-[30px] md:pt-[150px] xl:pb-[40px] xl:pt-[180px] 2xl:pb-[50px] 2xl:pt-[210px]"
           >
             <div className="absolute top-0 -z-20 h-full w-full bg-[#ffffffc0] bg-cover dark:bg-[#000000b0]" />
 
@@ -39,7 +45,7 @@ const Hero = ({ data }: TPropsHero) => {
               className="bg- absolute top-0 -z-30 h-full w-full bg-[#ffffffcf] object-cover dark:bg-[#000000b0]"
             />
 
-            <div className="container flex flex-col-reverse lg:min-h-[500px]">
+            <div className="container mt-60 flex flex-col-reverse sm:mt-0 lg:min-h-[500px]">
               <div className="max-w-[900px]">
                 <h1 className="mb-5 text-2xl font-bold leading-tight text-black dark:text-white sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight">
                   {item?.short_title}
@@ -52,13 +58,13 @@ const Hero = ({ data }: TPropsHero) => {
                         ? item?.description?.slice(0, 100) + "..."
                         : item?.description,
                   }}
-                  className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark xs:text-center sm:text-lg md:text-left md:text-xl"
+                  className="mb-12 text-left text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-left md:text-xl"
                 />
 
-                <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                <div className="flex flex-col items-start space-y-4 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0 ">
                   <Link
                     href={`/blog/${item?.id}`}
-                    className="flex items-center gap-1 rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    className="flex items-center gap-1 rounded-sm bg-primary px-4 py-2 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     <FaClipboardList /> Baca Selengkapnya
                   </Link>
