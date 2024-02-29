@@ -8,7 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const getBlogDetail = (id: string) => {
-  return axios(`https://www.backend.kkprba.com/api/blog/${id}`);
+  return axios(`https://www.backend.kkprba.com/api/regulation/${id}`);
 };
 
 const BlogDetailsPage = ({ params }: { params: { id: string } }) => {

@@ -195,5 +195,3 @@ const Blog = ({ data }: TPropsHero) => {
 };
 
 export default Blog;
-
-export * from "./ModalBlogCategories";

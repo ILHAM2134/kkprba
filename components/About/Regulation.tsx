@@ -110,21 +110,25 @@ const Regulation = ({ data }: TPropsRegulation) => {
                   />
                 </ConfigProvider>
 
-                <Button
-                  type="text"
-                  className="ml-auto mt-5 flex items-center justify-end text-black dark:text-white dark:hover:text-gray-100"
-                  icon={<GrLinkNext />}
-                  onClick={() => router.push("/regulation")}
-                >
-                  Selengkapnya
-                </Button>
+                <div className="container z-50 mt-1">
+                  <Button
+                    type="text"
+                    className="ml-auto mt-5 flex items-center justify-end text-black dark:text-white dark:hover:text-gray-100"
+                    onClick={() => {
+                      router.push("/regulation");
+                    }}
+                    icon={<GrLinkNext />}
+                  >
+                    Selengkapnya
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute right-0 top-[4700px] z-50">
+      <div className="absolute right-0 top-[4500px] z-40">
         <svg
           width="179"
           height="158"

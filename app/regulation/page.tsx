@@ -1,118 +1,143 @@
+"use client";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { Card, Checkbox, Input, Pagination, Select, Spin, Tag } from "antd";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { SearchOutlined } from "@ant-design/icons";
+import { useDebounce } from "use-debounce";
+import { SingleRegulation } from "@/components/Regulation";
 
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Blog Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Page for Startup Nextjs Template",
-  // other metadata
-};
-
-const getData = async () => {
+const getData = async (
+  page: number,
+  search: string,
+  categories: number | string,
+) => {
   try {
-    const resDataBlog = await axios("https://www.backend.kkprba.com/api/blog");
-    const dataBlog = resDataBlog?.data?.data;
+    const resDataRegulation = await axios(
+      `https://www.backend.kkprba.com/api/regulation?page=${page}&search=${search}&categories=${categories}`,
+    );
+
+    const resRegulationCategory = await axios(
+      `https://www.backend.kkprba.com/api/regulation-category`,
+    );
+
+    const dataRegulations = resDataRegulation?.data?.data;
+    const links = resDataRegulation?.data?.links;
+    const meta = resDataRegulation?.data?.meta;
+    const regulationsCategory = resRegulationCategory?.data?.data?.map(
+      (item) => ({
+        value: item?.id,
+        label: item?.name,
+      }),
+    );
+
+    regulationsCategory.unshift({ value: "", label: "All Categories" });
 
     return {
-      dataBlog,
+      dataRegulations,
+      links,
+      meta,
+      regulationsCategory,
     };
   } catch {
     return {
-      dataBlog: [],
+      dataRegulations: [],
+      links: {},
+      meta: {},
+      regulationsCategory: [],
     };
   }
 };
 
-const Regulations = async () => {
-  const data = await getData();
+const Regulation = () => {
+  const [data, setData] = useState<any>({ dataRegulations: [] });
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [search, setSearch] = useState<string>("");
+  const [categories, setCategories] = useState<number[] | string[]>([]);
+  const [total, setTotal] = useState<number>(0);
+
+  const [searchDebounce] = useDebounce(search, 500);
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const [modalCategoryOpen, setModalCategoryOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const getDataFetch = async () => {
+      const processedCategories = categories?.join(",");
+
+      const data = await getData(page, search, processedCategories);
+
+      setData(data);
+      setPage(data?.meta?.current_page);
+      setPageSize(data?.meta?.per_page);
+      setTotal(data?.meta?.total);
+      setLoading(false);
+    };
+
+    getDataFetch();
+  }, [page, searchDebounce, categories, pageSize]);
+
   return (
-    <>
+    <Spin spinning={loading}>
       <Breadcrumb
-        pageName="Regulations Grid"
+        pageName="Regulation Grid"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
       />
 
-      <section className="pb-[120px] pt-[120px]">
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap justify-center">
-            {data?.dataBlog?.map((blog) => (
-              <div
-                key={blog.id}
-                className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
-              >
-                <SingleBlog blog={blog} />
-              </div>
-            ))}
-          </div>
-
-          <div
-            className="wow fadeInUp -mx-4 flex flex-wrap"
-            data-wow-delay=".15s"
+      <div className="container block pb-[100px] pt-[50px] lg:flex">
+        <section className="sticky top-24 z-50 w-full lg:w-1/3">
+          <Card
+            size="small"
+            title={<p className="dark:text-slate-50">Categories</p>}
+            // extra={<a href="#">More</a>}
+            className="container sticky top-24 z-50 mb-6 w-full dark:bg-slate-400 dark:text-slate-50 lg:mb-3"
           >
-            <div className="w-full px-4">
-              <ul className="flex items-center justify-center pt-8">
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    Prev
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    1
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    2
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    3
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <span className="flex h-9 min-w-[36px] cursor-not-allowed items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color">
-                    ...
-                  </span>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    12
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    Next
-                  </a>
-                </li>
-              </ul>
+            <Checkbox.Group
+              options={data?.regulationsCategory}
+              onChange={(e) => {
+                setCategories(e);
+              }}
+            />
+
+            <Input
+              allowClear
+              placeholder="Search by title"
+              className="mt-10 w-[250px]"
+              prefix={<SearchOutlined />}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+          </Card>
+        </section>
+
+        <section className="w-full lg:w-2/3">
+          {data?.dataRegulations?.map((regulation) => (
+            <div key={regulation.id} className="my-2 w-full px-4">
+              <SingleRegulation regulation={regulation} />
             </div>
-          </div>
-        </div>
-      </section>
-    </>
+          ))}
+        </section>
+      </div>
+
+      <div className="container mb-8 flex justify-center">
+        <Pagination
+          pageSizeOptions={[10, 15, 20]}
+          className="container flex justify-center py-5 dark:bg-slate-600"
+          showSizeChanger
+          total={total}
+          onChange={(page, pageSize) => {
+            setPage(page);
+            setPageSize(pageSize);
+          }}
+        />
+      </div>
+    </Spin>
   );
 };
 
-export default Regulations;
+export default Regulation;

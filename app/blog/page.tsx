@@ -1,12 +1,17 @@
 "use client";
-import { ModalBlogCategories } from "@/components/Blog";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import { FloatButton, Pagination, Spin, Tag } from "antd";
+import { FloatButton, Input, Pagination, Select, Spin, Tag } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { SearchOutlined } from "@ant-design/icons";
+import { useDebounce } from "use-debounce";
 
-const getData = async (page: number, search: string, categories: number) => {
+const getData = async (
+  page: number,
+  search: string,
+  categories: number | string,
+) => {
   try {
     const resDataBlog = await axios(
       `https://www.backend.kkprba.com/api/blog?page=${page}&search=${search}&categories=${categories}`,
@@ -19,7 +24,12 @@ const getData = async (page: number, search: string, categories: number) => {
     const dataBlog = resDataBlog?.data?.data;
     const links = resDataBlog?.data?.links;
     const meta = resDataBlog?.data?.meta;
-    const blogCategories = resBlogCategories?.data?.data;
+    const blogCategories = resBlogCategories?.data?.data?.map((item) => ({
+      value: item?.id,
+      label: item?.name,
+    }));
+
+    blogCategories.unshift({ value: "", label: "All Categories" });
 
     return {
       dataBlog,
@@ -42,8 +52,10 @@ const Blog = () => {
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
   const [search, setSearch] = useState<string>("");
-  const [categories, setCategories] = useState<number>(0);
+  const [categories, setCategories] = useState<number | string>(0);
   const [total, setTotal] = useState<number>(0);
+
+  const [searchDebounce] = useDebounce(search, 500);
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -62,7 +74,7 @@ const Blog = () => {
     };
 
     getDataFetch();
-  }, [page, search, categories, pageSize]);
+  }, [page, searchDebounce, categories, pageSize]);
 
   return (
     <Spin spinning={loading}>
@@ -71,28 +83,38 @@ const Blog = () => {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
       />
 
-      <section className="pb-[120px] pt-[120px]">
+      <div className="container mt-3 flex items-center gap-2">
+        <Select
+          className="w-[200px]"
+          defaultValue=""
+          options={data?.blogCategories}
+          onChange={(e) => {
+            setCategories(e);
+          }}
+        />
+
+        <Input
+          allowClear
+          className="w-[250px]"
+          prefix={<SearchOutlined />}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </div>
+
+      <section className="pb-[120px] pt-[50px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             {data?.dataBlog?.map((blog) => (
               <div
                 key={blog.id}
-                className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
+                className="my-2 w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
               >
                 <SingleBlog blog={blog} />
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="container mt-8 max-w-[400px]">
-          <FloatButton
-            onClick={() => setModalCategoryOpen(true)}
-            type="primary"
-            shape="square"
-            className="fixed bottom-8 right-20 z-[99]"
-            tooltip={<div>Click for Blog Categories</div>}
-          />
         </div>
 
         <div className="container mt-12 flex justify-center">
@@ -108,13 +130,6 @@ const Blog = () => {
           />
         </div>
       </section>
-
-      <ModalBlogCategories
-        modalCategoryOpen={modalCategoryOpen}
-        setModalCategoryOpen={setModalCategoryOpen}
-        blogCategories={data?.blogCategories}
-        setCategories={setCategories}
-      />
     </Spin>
   );
 };
