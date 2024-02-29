@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { useDebounce } from "use-debounce";
 import { SingleRegulation } from "@/components/Regulation";
+import { CheckboxValueType } from "antd/es/checkbox/Group";
 
 const getData = async (
   page: number,
@@ -55,7 +56,7 @@ const Regulation = () => {
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
   const [search, setSearch] = useState<string>("");
-  const [categories, setCategories] = useState<number[] | string[]>([]);
+  const [categories, setCategories] = useState<CheckboxValueType[]>([]);
   const [total, setTotal] = useState<number>(0);
 
   const [searchDebounce] = useDebounce(search, 500);
