@@ -19,7 +19,10 @@ const Features = () => {
     <>
       <section id="our-services" className="py-16  md:py-20 lg:py-28">
         <div className="container border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
-          <Row justify="space-between">
+          <Row
+            justify={{ xs: "end", md: "space-between" }}
+            className="flex flex-wrap-reverse md:flex-none"
+          >
             <Col xs={24} md={14} className="mx-auto flex flex-wrap gap-6 p-2">
               {/* TAX COMPLIANCE */}
               <div className="flip-card-container">
@@ -109,7 +112,7 @@ const Features = () => {
                         </li>
 
                         <li className="my-2 text-black dark:text-white">
-                          Validasi Nomor Induk Kependudukan (NIK)
+                          Validasi Nomor Induxs: 'end'dukan (NIK)
                         </li>
 
                         <li className="my-2 text-black dark:text-white">

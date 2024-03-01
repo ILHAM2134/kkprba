@@ -45,7 +45,7 @@ const Hero = ({ data }: TPropsHero) => {
               className="bg- absolute top-0 -z-30 h-full w-full bg-[#ffffffcf] object-cover dark:bg-[#000000b0]"
             />
 
-            <div className="container mt-60 flex flex-col-reverse sm:mt-0 lg:min-h-[500px]">
+            <div className="container mt-40 flex flex-col-reverse sm:mt-0 lg:min-h-[500px]">
               <div className="max-w-[900px]">
                 <h1 className="mb-5 text-2xl font-bold leading-tight text-black dark:text-white sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight">
                   {item?.short_title}

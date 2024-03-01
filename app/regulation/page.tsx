@@ -1,7 +1,16 @@
 "use client";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import { Card, Checkbox, Input, Pagination, Select, Spin, Tag } from "antd";
+import {
+  Card,
+  Checkbox,
+  ConfigProvider,
+  Input,
+  Pagination,
+  Select,
+  Spin,
+  Tag,
+} from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
@@ -95,14 +104,23 @@ const Regulation = () => {
             size="small"
             title={<p className="dark:text-slate-50">Categories</p>}
             // extra={<a href="#">More</a>}
-            className="container sticky top-24 z-50 mb-6 w-full dark:bg-slate-400 dark:text-slate-50 lg:mb-3"
+            className="container sticky top-24 z-50 mb-6 w-full dark:bg-gray-800 dark:text-slate-50 lg:mb-3"
           >
-            <Checkbox.Group
-              options={data?.regulationsCategory}
-              onChange={(e) => {
-                setCategories(e);
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorText: "slate",
+                },
               }}
-            />
+            >
+              <Checkbox.Group
+                className="dark:text-slate-50"
+                options={data?.regulationsCategory}
+                onChange={(e) => {
+                  setCategories(e);
+                }}
+              />
+            </ConfigProvider>
 
             <Input
               allowClear

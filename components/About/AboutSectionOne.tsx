@@ -31,9 +31,8 @@ const AboutSectionOne = () => {
                 <Image
                   src={about.src}
                   alt="about-image"
-                  width={500}
                   preview={false}
-                  className="mx-auto max-w-full drop-shadow-three dark:drop-shadow-none lg:mr-0"
+                  className="mx-auto max-w-full drop-shadow-three dark:drop-shadow-none lg:mr-0 lg:w-[500px]"
                 />
               </div>
             </div>

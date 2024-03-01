@@ -40,7 +40,7 @@ const Video = () => {
         </div>
       </div>
 
-      <div className="container mt-[100px]">
+      {/* <div className="container mt-[100px]">
         <p className="text mb-4 text-lg font-bold !leading-tight text-black dark:text-white sm:text-xl md:text-2xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
@@ -50,13 +50,13 @@ const Video = () => {
           Necessitatibus recusandae a quidem ex facere nobis, ad fugiat
           quibusdam illo nisi.
         </p>
-      </div>
+      </div> */}
 
       <Row
         className="container mt-[60px] border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28"
         justify="center"
       >
-        <Col xs={24} md={12} lg={6}>
+        <Col xs={24} md={12} lg={6} className="my-2">
           <Tooltip
             placement="bottom"
             overlayInnerStyle={{
@@ -87,7 +87,8 @@ const Video = () => {
             </Card>
           </Tooltip>
         </Col>
-        <Col xs={24} md={12} lg={6}>
+
+        <Col xs={24} md={12} lg={6} className="my-2">
           <Tooltip
             placement="bottom"
             title={
@@ -112,7 +113,7 @@ const Video = () => {
           </Tooltip>
         </Col>
 
-        <Col xs={24} md={12} lg={6}>
+        <Col xs={24} md={12} lg={6} className="my-2">
           <Tooltip
             placement="bottom"
             title={
@@ -137,7 +138,7 @@ const Video = () => {
           </Tooltip>
         </Col>
 
-        <Col xs={24} md={12} lg={6}>
+        <Col xs={24} md={12} lg={6} className="my-2">
           <Tooltip
             placement="bottom"
             title={
