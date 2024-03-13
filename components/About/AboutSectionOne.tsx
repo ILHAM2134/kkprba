@@ -1,6 +1,7 @@
 import SectionTitle from "../Common/SectionTitle";
 import about from "@/public/images/about/about-us.png";
 import { Image } from "antd";
+import React, { useEffect, useState } from "react";
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -8,15 +9,28 @@ const checkIcon = (
   </svg>
 );
 
+const List = ({ text }) => (
+  <p className="mb-5 flex items-center text-lg font-medium text-body-color">
+    <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+      {checkIcon}
+    </span>
+
+    {text}
+  </p>
+);
+
 const AboutSectionOne = () => {
-  const List = ({ text }) => (
-    <p className="mb-5 flex items-center text-lg font-medium text-body-color">
-      <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
-        {checkIcon}
-      </span>
-      {text}
-    </p>
-  );
+  const [paragraph, setParagraph] = useState<string | React.ReactElement>("");
+
+  useEffect(() => {
+    setParagraph(
+      <>
+        <p className="">Izin Praktik Konsultan Pajak Nomor KEP-480/SJ/2022</p>
+
+        <p className="">Izin Kuasa Hukum Nomor KEP-450/PP/IKH/2023</p>
+      </>,
+    );
+  }, []);
 
   return (
     <section id="about" className="overflow-hidden pt-16 md:pt-20 lg:pt-28">
@@ -40,7 +54,7 @@ const AboutSectionOne = () => {
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
                 title="Kantor Konsultan Pajak Roro Bella Ayu."
-                paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
+                paragraph={paragraph}
                 mb="44px"
               />
 
@@ -50,17 +64,17 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
+                    <List text="Bersertifikat konsultan pajak" />
 
-                    <List text="Tailwind CSS" />
+                    <List text="Menjaga kerahasiaan data klien" />
 
-                    <List text="Use for lifetime" />
+                    <List text="Tim berpengalaman & kompeten" />
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
+                    <List text="Solusi komprehensif." />
 
-                    <List text="Rich documentation" />
+                    <List text="Layanan unggul dan profesional." />
 
                     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
                       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">

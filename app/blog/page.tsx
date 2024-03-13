@@ -79,8 +79,8 @@ const Blog = () => {
   return (
     <Spin spinning={loading}>
       <Breadcrumb
-        pageName="Blog Grid"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        pageName="Blog"
+        description="Explore a wide range of topics, from individual tax strategies to business tax optimization, all readily available at your fingertips."
       />
 
       <div className="container mt-3 flex items-center gap-2">
@@ -95,6 +95,7 @@ const Blog = () => {
 
         <Input
           allowClear
+          placeholder="Search"
           className="w-[250px]"
           prefix={<SearchOutlined />}
           onChange={(e) => {

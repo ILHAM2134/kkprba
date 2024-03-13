@@ -23,8 +23,7 @@ const Footer = () => {
                 </p>
 
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+                  Reach out today to Discuss your unique tax needs in detail.
                 </p>
 
                 <div className="flex items-center"></div>

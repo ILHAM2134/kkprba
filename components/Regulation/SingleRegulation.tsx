@@ -27,7 +27,7 @@ export const SingleRegulation = ({ regulation }: TPropsSingleRegulations) => {
           Read More
         </a>
       }
-      className="mb-2 w-full dark:bg-slate-600 dark:text-slate-50 md:mb-3"
+      className="mb-2 w-full bg-gray-100 dark:bg-gray-800 dark:text-slate-50 md:mb-3"
     >
       <p className="">
         <span>Kategori :&nbsp;&nbsp;</span>

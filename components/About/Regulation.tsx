@@ -72,7 +72,7 @@ const Regulation = ({ data }: TPropsRegulation) => {
 
                 <SectionTitle
                   title="Regulation"
-                  paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
+                  paragraph="We constantly monitor tax code updates, rulings, and interpretations to ensure you receive the most relevant and beneficial advice."
                   mb="44px"
                 />
               </div>

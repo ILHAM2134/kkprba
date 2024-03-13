@@ -94,8 +94,8 @@ const Regulation = () => {
   return (
     <Spin spinning={loading}>
       <Breadcrumb
-        pageName="Regulation Grid"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        pageName="Regulation"
+        description="We leverage our knowledge of tax regulations to develop effective tax plans that minimize your tax burden and maximize savings."
       />
 
       <div className="container block pb-[100px] pt-[50px] lg:flex">
@@ -146,7 +146,7 @@ const Regulation = () => {
       <div className="container mb-8 flex justify-center">
         <Pagination
           pageSizeOptions={[10, 15, 20]}
-          className="container flex justify-center py-5 dark:bg-slate-600"
+          className="container flex justify-center py-5 dark:bg-slate-300"
           showSizeChanger
           total={total}
           onChange={(page, pageSize) => {

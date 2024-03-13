@@ -39,8 +39,8 @@ const Features = () => {
                       </p>
 
                       <p className="mt-3 text-center text-black dark:text-white">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Facilis, velit!
+                        Help you to achieve tax compliance for personal /
+                        business
                       </p>
                     </Card>
                   </div>
@@ -91,8 +91,8 @@ const Features = () => {
                       </p>
 
                       <p className="mt-3 text-center text-black dark:text-white">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Facilis, velit!
+                        Take the Stress Out of Tax Season: We Handle the
+                        Administration.
                       </p>
                     </Card>
                   </div>
@@ -143,8 +143,8 @@ const Features = () => {
                       </p>
 
                       <p className="mt-3 text-center text-black dark:text-white">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Facilis, velit!
+                        Future-Proof Your Finances: Get Personalized Tax
+                        Planning Advice.
                       </p>
                     </Card>
                   </div>
@@ -192,8 +192,8 @@ const Features = () => {
                       </p>
 
                       <p className="mt-3 text-center text-black dark:text-white">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Facilis, velit!
+                        Facing a Tax Dispute? Don't Go It Alone. Get Expert Tax
+                        Litigation Representation.
                       </p>
                     </Card>
                   </div>
@@ -245,8 +245,8 @@ const Features = () => {
                       </p>
 
                       <p className="mt-3 text-center text-black dark:text-white">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Facilis, velit!
+                        Empower Yourself & Your Team: Get Certified in Tax with
+                        Our Expert Guidance.
                       </p>
                     </Card>
                   </div>
@@ -257,25 +257,21 @@ const Features = () => {
                       className="h-[250px] w-[300px] bg-gray-100 dark:bg-gray-800"
                     >
                       <p className="text-center text-2xl text-black dark:text-white">
-                        Tax Litigation Services
+                        Brevet & Pelatihan
                       </p>
 
                       <ul className="ml-3 list-disc">
                         <li className="my-2 text-black dark:text-white">
-                          Pengajuan Permohonan Pengurangan Sanksi Administrasi
-                          Pajak
+                          Pelajari tentang sistem perpajakan di Indonesia
                         </li>
                         <li className="my-2 text-black dark:text-white">
-                          Restitusi Perpajakan
+                          Melaporkan SPT Masa dan Tahunan
                         </li>
                         <li className="my-2 text-black dark:text-white">
-                          Pemeriksaan Perpajakan
+                          Memahami mekanisme penyelesaian sengketa pajak
                         </li>
                         <li className="my-2 text-black dark:text-white">
-                          Sengketa Perpajakan
-                        </li>
-                        <li className="my-2 text-black dark:text-white">
-                          Kuasa Hukum Pengadilan Pajak
+                          Pelatihan Bea Masuk dan Cukai
                         </li>
                       </ul>
                     </Card>
@@ -291,8 +287,9 @@ const Features = () => {
                 </h2>
 
                 <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                  There are many variations of passages of Lorem Ipsum available
-                  but the majority have suffered alteration in some form.
+                  We offer a comprehensive suite of tax services designed to
+                  meet your individual and business needs. we're here to help
+                  you every step of the way.
                 </p>
 
                 <Image

@@ -19,7 +19,7 @@ const Video = () => {
       <div className="container">
         <SectionTitle
           title="We are ready to help"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="We're more than just tax consultants – we're your trusted tax partner!"
           center
           mb="80px"
         />
@@ -39,18 +39,6 @@ const Video = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="container mt-[100px]">
-        <p className="text mb-4 text-lg font-bold !leading-tight text-black dark:text-white sm:text-xl md:text-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-
-        <p className="text-base !leading-relaxed text-body-color md:text-lg">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Necessitatibus recusandae a quidem ex facere nobis, ad fugiat
-          quibusdam illo nisi.
-        </p>
-      </div> */}
 
       <Row
         className="container mt-[60px] border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28"

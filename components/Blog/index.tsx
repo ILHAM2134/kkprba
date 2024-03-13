@@ -22,7 +22,7 @@ const Blog = ({ data }: TPropsHero) => {
       <div className="container">
         <SectionTitle
           title="Our Latest Blogs"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Tax laws are constantly evolving, and staying informed can be a challenge. But fear not! At KKPRBA, we're passionate about keeping you up-to-date on the latest tax developments."
           center
         />
 
