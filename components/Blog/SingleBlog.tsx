@@ -22,14 +22,18 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   return (
     <>
       <div
-        className="wow fadeInUp group relative h-[500px] overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
+        className="wow fadeInUp group relative h-[510px] overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
         data-wow-delay=".1s"
       >
         <Link
           href={`/blog/${id}`}
           className="relative block aspect-[37/22] w-full"
         >
-          <img src={image} alt="image" height={300} />
+          <img
+            src={image}
+            alt="image"
+            className="h-[300px] w-full object-cover"
+          />
         </Link>
 
         <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
@@ -43,7 +47,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
           </h3>
 
           <div
-            className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10"
+            className="mb-6 max-h-[50px] border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10"
             dangerouslySetInnerHTML={{
               __html:
                 description?.length > 50

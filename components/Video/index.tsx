@@ -45,110 +45,91 @@ const Video = () => {
         justify="center"
       >
         <Col xs={24} md={12} lg={6} className="my-2">
-          <Tooltip
-            placement="bottom"
-            overlayInnerStyle={{
-              width: "400px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-            title={
-              <div className="w-full">
-                <p className="text-lg">
-                  Roro Bella Ayu WPP, S.Pn., M.Ak., BKP., CTT
-                </p>
-
-                <p className="mt-2 text-lg font-semibold">Managing Director</p>
-              </div>
-            }
+          <Card
+            bordered={false}
+            className="flex h-[450px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
           >
-            <Card
-              bordered={false}
-              className="flex h-[400px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
-            >
-              <Image
-                src={img1.src}
-                alt="video image"
-                width={250}
-                preview={false}
-              />
-            </Card>
-          </Tooltip>
+            <Image
+              src={img1.src}
+              alt="video image"
+              width={250}
+              preview={false}
+            />
+
+            <p className="text-xs text-black dark:text-white">
+              Roro Bella Ayu WPP, S.Pn., M.Ak., BKP., CTT
+            </p>
+
+            <p className="mt-1 text-xs font-semibold text-black dark:text-white">
+              Managing Director
+            </p>
+          </Card>
         </Col>
 
         <Col xs={24} md={12} lg={6} className="my-2">
-          <Tooltip
-            placement="bottom"
-            title={
-              <div className="w-full">
-                <p className="text-lg">Aqshal Izzah Kusuma</p>
-
-                <p className="mt-2 text-lg font-semibold">Supervisor</p>
-              </div>
-            }
+          <Card
+            bordered={false}
+            className="flex h-[450px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
           >
-            <Card
-              bordered={false}
-              className="flex h-[400px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
-            >
-              <Image
-                src={img3.src}
-                alt="video image"
-                width={250}
-                preview={false}
-              />
-            </Card>
-          </Tooltip>
+            <Image
+              src={img3.src}
+              alt="video image"
+              width={250}
+              preview={false}
+            />
+
+            <p className="text-xs text-black dark:text-white">
+              Aqshal Izzah Kusuma
+            </p>
+
+            <p className="mt-1 text-xs font-semibold text-black dark:text-white">
+              Supervisor
+            </p>
+          </Card>
         </Col>
 
         <Col xs={24} md={12} lg={6} className="my-2">
-          <Tooltip
-            placement="bottom"
-            title={
-              <div className="w-full">
-                <p className="text-lg">Abighail Putri R</p>
-
-                <p className="mt-2 text-lg font-semibold">Junior Tax</p>
-              </div>
-            }
+          <Card
+            bordered={false}
+            className="flex h-[450px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
           >
-            <Card
-              bordered={false}
-              className="flex h-[400px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
-            >
-              <Image
-                src={img2.src}
-                alt="video image"
-                width={250}
-                preview={false}
-              />
-            </Card>
-          </Tooltip>
+            <Image
+              src={img2.src}
+              alt="video image"
+              width={250}
+              preview={false}
+            />
+
+            <p className="text-xs text-black dark:text-white">
+              Abighail Putri R
+            </p>
+
+            <p className="mt-1 text-xs font-semibold text-black dark:text-white">
+              Junior Tax
+            </p>
+          </Card>
         </Col>
 
         <Col xs={24} md={12} lg={6} className="my-2">
-          <Tooltip
-            placement="bottom"
-            title={
-              <div className="w-full">
-                <p className="text-lg">Rafachinka Renjani R</p>
-
-                <p className="mt-2 text-lg font-semibold">Junior Tax</p>
-              </div>
-            }
+          <Card
+            bordered={false}
+            className="flex h-[450px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
           >
-            <Card
-              bordered={false}
-              className="flex h-[400px] w-[300px] items-center justify-center bg-gray-100 dark:bg-gray-800"
-            >
-              <Image
-                src={img4.src}
-                alt="video image"
-                width={250}
-                preview={false}
-              />
-            </Card>
-          </Tooltip>
+            <Image
+              src={img4.src}
+              alt="video image"
+              width={250}
+              preview={false}
+            />
+
+            <p className="text-xs text-black dark:text-white">
+              Rafachinka Renjani R
+            </p>
+
+            <p className="mt-1 text-xs font-semibold text-black dark:text-white">
+              Junior Tax
+            </p>
+          </Card>
         </Col>
       </Row>
 

@@ -110,7 +110,7 @@ const Blog = () => {
             {data?.dataBlog?.map((blog) => (
               <div
                 key={blog.id}
-                className="my-2 w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
+                className="my-3 w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
               >
                 <SingleBlog blog={blog} />
               </div>

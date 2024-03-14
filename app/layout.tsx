@@ -8,6 +8,11 @@ import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import logo from "@/public/images/logo/logo.jpg";
 
+import { Providers } from "./providers";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import axios from "axios";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -15,6 +20,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const isCountVisitor = window.localStorage.getItem("dateCountVisitor");
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const dt = date.getDate();
+
+    const fullDate = `${year}-${month}-${dt}`;
+
+    if (isCountVisitor) {
+      if (isCountVisitor !== fullDate) {
+        axios.put("https://www.backend.kkprba.com/api/total-viewer");
+        window.localStorage.setItem("dateCountVisitor", fullDate);
+      }
+    } else {
+      axios.put("https://www.backend.kkprba.com/api/total-viewer");
+      window.localStorage.setItem("dateCountVisitor", fullDate);
+    }
+  }, [pathname]);
+
   return (
     <html suppressHydrationWarning lang="en">
       <head>
@@ -38,5 +66,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import { Providers } from "./providers";
